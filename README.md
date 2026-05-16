@@ -2,6 +2,12 @@
 
 这是周灏的个人作品与简历网站，适合部署到 GitHub Pages、Cloudflare Pages 或其他静态网站托管服务。
 
+线上地址：
+
+```text
+https://mifaiyang.github.io/hao-zhou-portfolio/
+```
+
 ## 本地预览
 
 在当前目录启动静态服务器后打开 `index.html`：
