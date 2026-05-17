@@ -47,10 +47,19 @@ img {
   max-width: 100%;
 }
 
+#signal-field {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+}
+
 .page-noise {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: -2;
   pointer-events: none;
   opacity: .16;
   mix-blend-mode: multiply;
@@ -59,6 +68,23 @@ img {
     url("assets/resume-texture.png");
   background-size: cover;
   filter: contrast(1.2) saturate(.7);
+}
+
+.scroll-meter {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  height: 5px;
+  background: rgba(17, 17, 15, .08);
+}
+
+.scroll-meter span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
 }
 
 .v2-header {
@@ -614,11 +640,11 @@ img {
 .skill-columns {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
+  gap: 12px;
 }
 
 .skill-columns article {
-  min-height: 220px;
+  min-height: 230px;
   padding: 22px;
   background:
     linear-gradient(135deg, rgba(255, 255, 255, .52), rgba(255, 255, 255, 0)),
@@ -798,7 +824,7 @@ img {
 
   .skill-columns,
   .material-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .project-card,
@@ -886,5 +912,23 @@ img {
 
   .film-copy {
     padding: 24px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 760px) {
+  .skill-columns,
+  .material-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #signal-field {
+    display: none;
+  }
+
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
   }
 }
