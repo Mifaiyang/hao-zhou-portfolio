@@ -132,11 +132,12 @@ img {
 }
 
 .hero h1 {
-  max-width: 760px;
+  max-width: 980px;
   margin: 18px 0 0;
-  font-size: clamp(64px, 8vw, 116px);
+  font-size: clamp(64px, 7vw, 104px);
   line-height: .88;
   letter-spacing: 0;
+  white-space: nowrap;
 }
 
 .role {
@@ -564,6 +565,10 @@ img {
   .case-side {
     position: static;
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero h1 {
+    white-space: normal;
   }
 }
 
