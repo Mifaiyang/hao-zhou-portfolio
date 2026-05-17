@@ -147,20 +147,6 @@ img {
   position: relative;
 }
 
-.hero::before {
-  content: "CREATIVE OPERATOR";
-  position: absolute;
-  right: 0;
-  bottom: 122px;
-  color: rgba(17, 17, 15, .07);
-  font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(58px, 8vw, 130px);
-  font-weight: 900;
-  line-height: .8;
-  pointer-events: none;
-  writing-mode: vertical-rl;
-}
-
 .eyebrow,
 .section-label,
 .project-index {
@@ -340,6 +326,7 @@ img {
 
 .about h2,
 .section-head h2,
+.case-title-row h1,
 .case-title-row h2,
 .contact h2 {
   margin: 12px 0 0;
@@ -738,6 +725,33 @@ img {
   transform: translateY(-2px);
 }
 
+.project-page-hero {
+  padding-top: 96px;
+}
+
+.project-page-hero .case-title-row {
+  align-items: end;
+}
+
+.back-link {
+  width: fit-content;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  margin-bottom: 28px;
+  padding: 0 14px;
+  font-weight: 900;
+  transition: color .2s var(--ease), background .2s var(--ease), transform .2s var(--ease);
+}
+
+.back-link:hover {
+  color: var(--bg);
+  background: var(--ink);
+  transform: translateX(-3px);
+}
+
 .timeline-list {
   display: grid;
   border-top: 1px solid var(--ink);
@@ -811,9 +825,6 @@ img {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .hero::before {
-    display: none;
-  }
 }
 
 @media (max-width: 640px) {
@@ -842,6 +853,7 @@ img {
 
   .about h2,
   .section-head h2,
+  .case-title-row h1,
   .case-title-row h2,
   .contact h2 {
     font-size: 34px;
