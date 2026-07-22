@@ -149,11 +149,14 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: .04em;
 }
 :where(.nav-cta, .chapter-resume, .project-resume) {
+  appearance: none;
   display: inline-flex;
   align-items: center;
   gap: 9px;
   padding: 14px 20px;
+  border: 0;
   border-radius: 999px;
+  color: inherit;
   background: var(--ice);
   font-family: var(--font-body);
   font-size: .875rem;
