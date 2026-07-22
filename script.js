@@ -24,25 +24,27 @@ const proofGroup = document.querySelector('[data-proof-group]');
 const proofOdometers = proofGroup ? [...proofGroup.querySelectorAll('[data-proof-odometer]')] : [];
 
 if (proofGroup && proofOdometers.length) {
-  proofOdometers.forEach((odometer) => {
+  proofOdometers.forEach((odometer, groupIndex) => {
     const target = odometer.dataset.target || '0';
     const digits = [...target];
     const track = document.createElement('span');
     track.className = 'proof-digit-strip';
     track.setAttribute('aria-hidden', 'true');
-    track.style.setProperty('--target-digit', '0');
-    track.style.setProperty('--digit-delay', '0ms');
 
     digits.forEach((digit, index) => {
       const digitTrack = document.createElement('span');
       digitTrack.className = 'proof-digit-column';
-      digitTrack.style.setProperty('--target-digit', digit);
-      digitTrack.style.setProperty('--digit-delay', `${index * 90}ms`);
-      for (let value = 0; value <= Number(digit); value += 1) {
+      const sequence = [...Array(10).keys(), ...Array(Number(digit) + 1).keys()];
+      const stopIndex = sequence.length - 1;
+      digitTrack.dataset.targetDigit = digit;
+      digitTrack.dataset.stopIndex = stopIndex;
+      digitTrack.style.setProperty('--digit-stop', stopIndex);
+      digitTrack.style.setProperty('--digit-delay', `${groupIndex * 120 + index * 90}ms`);
+      sequence.forEach((value) => {
         const face = document.createElement('span');
         face.textContent = value;
         digitTrack.appendChild(face);
-      }
+      });
       track.appendChild(digitTrack);
     });
 
@@ -52,23 +54,37 @@ if (proofGroup && proofOdometers.length) {
   if (!reducedMotion) {
     proofGroup.classList.add('proof-motion-ready');
     let played = false;
-    const playProof = () => {
+    let playTimer = null;
+    const fontsReady = document.fonts?.ready || Promise.resolve();
+    const playProof = (delay) => {
       if (played) return;
       played = true;
-      window.requestAnimationFrame(() => proofGroup.classList.add('is-counting'));
+      fontsReady.then(() => {
+        playTimer = window.setTimeout(() => {
+          proofGroup.classList.add('is-primed');
+          window.requestAnimationFrame(() => {
+            window.requestAnimationFrame(() => proofGroup.classList.add('is-counting'));
+          });
+        }, delay);
+      });
     };
+
+    const proofRect = proofGroup.getBoundingClientRect();
+    const initiallyVisible = proofRect.top < window.innerHeight && proofRect.bottom > 0;
 
     if ('IntersectionObserver' in window) {
       const proofObserver = new IntersectionObserver((entries) => {
         if (entries.some((entry) => entry.isIntersecting)) {
-          playProof();
+          playProof(initiallyVisible ? 780 : 140);
           proofObserver.disconnect();
         }
       }, { threshold: 0.25, rootMargin: '0px 0px -10% 0px' });
       proofObserver.observe(proofGroup);
     } else {
-      playProof();
+      playProof(initiallyVisible ? 780 : 140);
     }
+
+    window.addEventListener('pagehide', () => window.clearTimeout(playTimer), { once: true });
   }
 }
 
