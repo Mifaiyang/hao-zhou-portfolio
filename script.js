@@ -39,7 +39,7 @@ if (proofGroup && proofOdometers.length) {
       digitTrack.dataset.targetDigit = digit;
       digitTrack.dataset.stopIndex = stopIndex;
       digitTrack.style.setProperty('--digit-stop', stopIndex);
-      digitTrack.style.setProperty('--digit-delay', `${groupIndex * 120 + index * 90}ms`);
+      digitTrack.style.setProperty('--digit-delay', `${groupIndex * 50 + index * 50}ms`);
       sequence.forEach((value) => {
         const face = document.createElement('span');
         face.textContent = value;
@@ -52,7 +52,7 @@ if (proofGroup && proofOdometers.length) {
   });
 
   if (!reducedMotion) {
-    proofGroup.classList.add('proof-motion-ready');
+    proofGroup.classList.add('proof-motion-ready', 'is-primed');
     let played = false;
     let playTimer = null;
     const fontsReady = document.fonts?.ready || Promise.resolve();
@@ -61,7 +61,6 @@ if (proofGroup && proofOdometers.length) {
       played = true;
       fontsReady.then(() => {
         playTimer = window.setTimeout(() => {
-          proofGroup.classList.add('is-primed');
           window.requestAnimationFrame(() => {
             window.requestAnimationFrame(() => proofGroup.classList.add('is-counting'));
           });
@@ -72,16 +71,18 @@ if (proofGroup && proofOdometers.length) {
     const proofRect = proofGroup.getBoundingClientRect();
     const initiallyVisible = proofRect.top < window.innerHeight && proofRect.bottom > 0;
 
-    if ('IntersectionObserver' in window) {
+    if (initiallyVisible) {
+      playProof(120);
+    } else if ('IntersectionObserver' in window) {
       const proofObserver = new IntersectionObserver((entries) => {
         if (entries.some((entry) => entry.isIntersecting)) {
-          playProof(initiallyVisible ? 780 : 140);
+          playProof(20);
           proofObserver.disconnect();
         }
-      }, { threshold: 0.25, rootMargin: '0px 0px -10% 0px' });
+      }, { threshold: 0.1, rootMargin: '0px' });
       proofObserver.observe(proofGroup);
     } else {
-      playProof(initiallyVisible ? 780 : 140);
+      playProof(20);
     }
 
     window.addEventListener('pagehide', () => window.clearTimeout(playTimer), { once: true });

@@ -161,7 +161,7 @@ a { color: inherit; text-decoration: none; }
 .proof-digit-column span { display:block; height:1em; line-height:1; }
 .hero-proof.proof-motion-ready.is-primed .proof-fallback { display:none; }
 .hero-proof.proof-motion-ready.is-primed .proof-odometer { display:inline-block; }
-.hero-proof.proof-motion-ready.is-counting .proof-digit-column { transform:translateY(calc(var(--digit-stop) * -1em)); transition:transform 1.75s cubic-bezier(.16,.78,.18,1) var(--digit-delay); }
+.hero-proof.proof-motion-ready.is-counting .proof-digit-column { transform:translateY(calc(var(--digit-stop) * -1em)); transition:transform 1s cubic-bezier(.16,.78,.18,1) var(--digit-delay); }
 .proof-unit { color:var(--acid); font-size:.55em; margin-left:2px; }
 .hero-proof small { color:rgba(255,255,255,.55); font-size:var(--text-caption); }
 .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
