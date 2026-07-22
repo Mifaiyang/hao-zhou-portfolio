@@ -25,6 +25,8 @@
 - Display: 得意黑 Smiley Sans Oblique，仅用于首屏、章节标题、项目路径标题和核心数字。
 - Body: `PingFang SC`, `Microsoft YaHei`, `system-ui`, sans-serif，用于导航、按钮、正文、标签和中文界面文本。
 - Instrument: `SFMono-Regular`, `SF Mono`, `Consolas`, monospace，仅用于信号盘刻度、年份、技术缩写和少量仪表数据。
+- 全站通过根目录 `shared.css` 统一颜色 token、字体栈与导航基础字重；各页面专属 CSS 在其后加载，保留页面实现。
+- 7 个页面都预加载同一份 Smiley Sans WOFF2（`as="font"`、`type="font/woff2"`、`crossorigin`），共享层使用 `font-display: swap`，降低首次加载时的字体替换延迟与跳变。
 - 文本角色：caption 0.75rem，body 1rem，lead 1.125rem，subheading 1.5rem，section 使用有界 `clamp()`，hero 使用有界 `clamp()`。
 - 大标题使用自然的微紧字距，中文不得沿用过紧的负字距；正文行长控制在 45 至 75ch。
 - 长中文项目详情标题使用正文中文无衬线栈的粗体；得意黑只承担短标题、项目预告标题与核心数字。
