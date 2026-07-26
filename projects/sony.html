@@ -3,19 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="周灏的 Sony 相机自动传输到 Mac 项目：从真实拍摄痛点、需求定义和连续测试，到公开 GitHub 工具。" />
+    <meta name="description" content="周灏的 Sony 相机自动传输到 Mac 项目：从家庭拍摄中的导卡麻烦出发，与 AI 协作完成真实设备验证、公开工具和演示视频。" />
     <meta name="theme-color" content="#aaa2e8" />
     <meta property="og:type" content="article" />
     <meta property="og:locale" content="zh_CN" />
     <meta property="og:title" content="Sony 拍完，自动进入 Mac｜周灏" />
-    <meta property="og:description" content="把反复拔卡导素材的问题，做成可运行、可验证、可公开复用的工作流。" />
-    <meta property="og:image" content="../assets/zhouhao-portfolio-og.png" />
+    <meta property="og:description" content="不用读卡器，让 Sony 相机拍完后通过家庭网络把素材送进 Mac。" />
+    <meta property="og:image" content="../assets/sony/sony-ftp-poster.jpg" />
     <title>Sony 拍完，自动进入 Mac｜周灏</title>
     <link rel="canonical" href="./sony.html" />
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="../assets/fonts/SmileySans-Oblique.ttf.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="../shared.css?v=20260723-3" />
-    <link rel="stylesheet" href="./project-placeholder.css?v=20260723-1" />
+    <link rel="stylesheet" href="./project-placeholder.css?v=20260726-1" />
   </head>
   <body>
     <a class="skip-link" href="#content">跳到内容</a>
@@ -30,52 +30,61 @@
         <div>
           <p class="kicker">创作者工具</p>
           <h1 class="display-lines"><span class="display-line">Sony 拍完</span><span class="display-line">自动进入 Mac</span></h1>
-          <p class="project-note">在家拍摄时，我不想每次都拔卡、插读卡器、再手动复制素材。于是我把相机到 Mac 的局域网传输整理成一套可以运行、验证和公开复用的工作流。</p>
-          <div class="case-actions"><a class="home-link" href="https://github.com/Mifaiyang/sony-camera-ftp-macos" target="_blank" rel="noreferrer">查看 GitHub 项目 <span>↗</span></a><a class="quiet-link" href="#case-process">看项目过程 ↓</a></div>
+          <p class="project-note">我常用 CFexpress Type A 卡在家拍摄，但专用读卡器价格高；换成 SD 卡，又要频繁拿出、收起读卡器。为了保持桌面简洁，我开始尝试让相机拍完后直接把素材送进 Mac。</p>
+          <div class="case-actions"><a class="home-link" href="https://github.com/Mifaiyang/sony-camera-ftp-macos" target="_blank" rel="noreferrer">查看 GitHub 项目 <span>↗</span></a><a class="quiet-link" href="https://www.xiaohongshu.com/discovery/item/6a2c196f000000001700820b" target="_blank" rel="noreferrer">查看小红书原帖 ↗</a></div>
         </div>
-        <div class="placeholder-stage sony-stage" aria-label="相机拍摄完成后，通过家庭局域网把素材自动传输到 Mac 的已验证链路示意">
-          <div class="sony-step sony-step-camera"><span>拍摄完成</span></div><div class="sony-path"></div><div class="sony-step sony-step-lan"><span>家庭局域网</span></div><div class="sony-step sony-step-mac"><span>Mac 收到</span></div>
-          <span class="placeholder-label">真实链路示意</span><span class="future-preview-note">已完成相机实际传输验证</span>
+        <div class="sony-video-stage" id="case-video">
+          <video controls playsinline preload="metadata" poster="../assets/sony/sony-ftp-poster.jpg" aria-label="Sony 相机通过家庭网络自动传输素材到 Mac 的完整演示">
+            <source src="../assets/sony/sony-ftp-demo.mp4" type="video/mp4" />
+            当前浏览器不支持视频播放。
+          </video>
+          <span class="placeholder-label">70 秒真实演示</span>
         </div>
       </section>
 
       <section class="case-overview" aria-labelledby="case-overview-title">
         <div class="case-heading"><p>问题与目标</p><h2 id="case-overview-title">不是为了做一个“技术项目”<br />而是为了少做一次重复动作</h2></div>
         <dl class="case-facts">
-          <div><dt>真实痛点</dt><dd>拍完后反复拔卡、插读卡器、手动复制素材</dd></div>
+          <div><dt>真实痛点</dt><dd>专用读卡器价格高，普通读卡器又会打乱桌面和拍摄节奏</dd></div>
           <div><dt>结果定义</dt><dd>相机拍完后，通过同一家庭网络把素材送到 Mac 指定文件夹</dd></div>
-          <div><dt>我的角色</dt><dd>需求定义、边界拆解、连续测试、验收、发布包装</dd></div>
-          <div><dt>公开结果</dt><dd>GitHub 工具与教程；相关内容约 600+ 互动</dd></div>
+          <div><dt>我的角色</dt><dd>提出问题、定义场景与边界、按步骤实机测试、反馈错误并判断结果</dd></div>
+          <div><dt>AI 的角色</dt><dd>代码实现、命令配置、技术排错与文档整理</dd></div>
+          <div><dt>现在还用吗</dt><dd>会，目前大约每周使用 1—2 次</dd></div>
+          <div><dt>公开反馈</dt><dd>整理时可见 216 赞、275 收藏与 55 评论</dd></div>
         </dl>
       </section>
 
       <section class="case-process" id="case-process" aria-labelledby="case-process-title">
         <div class="case-heading"><p>怎么做出来</p><h2 id="case-process-title">把一条不稳定的链路<br />拆成四个能分别验证的环节</h2></div>
         <ol class="process-list">
-          <li><span>01</span><div><h3>先写清什么叫“可用”</h3><p>不经过手机中转；Mac 重启后仍能接收；接收位置容易找到；普通用户不需要研究一整套 FTP 配置。</p></div></li>
-          <li><span>02</span><div><h3>让 Mac 成为接收端</h3><p>配置本地 FTP 服务、固定接收目录和自动启动方式，并让安装过程输出相机端需要填写的信息。</p></div></li>
-          <li><span>03</span><div><h3>用真实相机持续测试</h3><p>先验证本机上传链路，再使用 Sony 相机实际传输，围绕网络、端口、连续传输和恢复情况反复排错。</p></div></li>
-          <li><span>04</span><div><h3>把一次解决变成别人也能用</h3><p>把配置过程封装为 AI Agent 可读取的 Skill，并补充直接运行脚本、使用说明和安全边界。</p></div></li>
+          <li><span>01</span><div><h3>先把麻烦说清楚</h3><p>我不需要炫技功能，只希望相机拍完后，素材可以在同一家庭网络里进入 Mac 的固定文件夹。</p></div></li>
+          <li><span>02</span><div><h3>把目标和限制交给 AI</h3><p>我不会编程，因此由 AI 完成代码、命令配置和技术排错；我持续补充设备、网络与使用习惯等真实约束。</p></div></li>
+          <li><span>03</span><div><h3>在真实设备上逐项验证</h3><p>按照方案配置 Mac 和 Sony 相机，再把连接失败、菜单位置和传输情况反馈给 AI，直到照片能稳定进入指定文件夹。</p></div></li>
+          <li><span>04</span><div><h3>把一次解决整理成公开工具</h3><p>完成日常使用验收后，再整理为 GitHub 项目、AI Agent Skill 和小红书演示，让其他人也能复用。</p></div></li>
         </ol>
       </section>
 
       <section class="case-evidence" aria-labelledby="case-evidence-title">
         <div class="case-heading"><p>目前可以验证的证据</p><h2 id="case-evidence-title">代码、测试与公开反馈<br />都能继续往下追</h2></div>
         <div class="evidence-grid">
+          <article><span>完整演示</span><h3>70 秒真实操作视频</h3><p>从项目配置、相机菜单设置到 Mac 文件夹收到素材，直接展示完整链路。</p><a href="#case-video">回到视频 ↑</a></article>
           <article><span>公开项目</span><h3>可复用的 GitHub 仓库</h3><p>提供 AI Agent 配置路径、直接运行脚本、相机端设置说明和安全边界。</p><a href="https://github.com/Mifaiyang/sony-camera-ftp-macos" target="_blank" rel="noreferrer">打开仓库 ↗</a></article>
-          <article><span>实际验证</span><h3>相机到 Mac 的真实传输</h3><p>完成本地链路检查、相机实际传输和失败后的重复验证，不把脚本运行成功当成最终交付。</p></article>
-          <article><span>公开反馈</span><h3>相关内容约 600+ 互动</h3><p>收藏和互动说明这个麻烦不只发生在我身上，也帮助我继续判断安装与说明应该怎么改。</p></article>
+          <article><span>公开反馈</span><h3>216 赞 · 275 收藏 · 55 评论</h3><p>收藏多于点赞，说明这个麻烦不只发生在我身上，也有人希望把方案留到真正需要时再用。</p><a href="https://www.xiaohongshu.com/discovery/item/6a2c196f000000001700820b" target="_blank" rel="noreferrer">查看原帖 ↗</a></article>
         </div>
       </section>
 
       <section class="case-boundary" aria-labelledby="case-boundary-title">
-        <div><p>边界说明</p><h2 id="case-boundary-title">AI 帮我实现和排错<br />判断与验收仍由我负责</h2></div>
-        <div><p>我负责定义目标、写清约束、提供错误现象、完成真实设备测试，并判断结果是否真的适合创作者使用。AI Agent 参与了脚本实现、排错和文档整理。</p><p>当前方案使用家庭局域网中的普通 FTP，只适合可信任的本地网络，不建议直接暴露到公网。</p></div>
+        <div><p>协作边界</p><h2 id="case-boundary-title">我不会编程<br />但知道问题有没有真的解决</h2></div>
+        <div><p>代码、命令和大部分技术排错由 AI 完成。我负责提出问题，把目标和限制说清楚，按步骤在真实设备上操作，把错误现象带回来，并判断结果是否适合自己的拍摄习惯。</p><p>这不是把 AI 的执行包装成我的编程能力，而是一次“人定义问题并验收，AI 完成技术实现”的协作。</p></div>
       </section>
 
-      <section class="case-media-needed" aria-label="待补充的演示素材">
-        <div class="media-slot media-slot--wide"><div class="media-slot__frame"><span>10—15 秒 · 16:9</span><strong>真实操作演示</strong></div></div>
-        <div><p>下一步补充的不是宣传片，而是一段十几秒的真实演示：</p><strong>相机按下拍摄 → 等待传输 → Mac 文件夹出现新素材</strong><span>这段画面准备好后，会替换首屏的链路示意。</span></div>
+      <section class="case-use" aria-labelledby="case-use-title">
+        <div class="case-heading"><p>真实使用之后</p><h2 id="case-use-title">它解决了麻烦<br />也没有假装解决一切</h2></div>
+        <div class="evidence-grid case-use-grid">
+          <article><span>最难配置</span><h3>相机菜单像一座迷宫</h3><p>Sony 的网络与 FTP 设置层级很深，找到正确入口、对应填写参数，是实际配置中最费时间的一部分。</p></article>
+          <article><span>速度限制</span><h3>家庭网络不是高速读卡器</h3><p>实际速度受 Wi-Fi 和网络环境影响，达不到理论上限。它更适合日常和小批量传输，而不是替代所有高速导卡场景。</p></article>
+          <article><span>使用频率</span><h3>现在每周仍会用 1—2 次</h3><p>它没有成为每天必开的功能，但在家拍完想快速把素材送进 Mac 时，仍然能少拿一次读卡器。</p></article>
+        </div>
       </section>
 
       <section class="case-footer-actions"><a class="home-link" href="./index.html">返回项目总览 <span>↗</span></a><a class="quiet-link" href="../lab/index.html">去 AI 实验室 →</a></section>
