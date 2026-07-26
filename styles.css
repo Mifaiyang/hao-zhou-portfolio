@@ -8,7 +8,7 @@
   --text-section: clamp(3.25rem, 6vw, 5.625rem);
   --text-hero: clamp(3.75rem, 7.2vw, 7rem);
   --leading-body: 1.72;
-  --leading-display: 1.06;
+  --leading-display: 1.13;
 }
 
 body { overflow-x: hidden; }
@@ -69,6 +69,7 @@ body { overflow-x: hidden; }
   line-height: var(--leading-display);
 }
 .display-lines .display-line { display:block; white-space:nowrap; }
+.display-lines .display-line + .display-line { margin-top:.05em; }
 .hero h1 { font-size: var(--text-hero); }
 .hero h1 .display-line:last-child { color: var(--acid); }
 .hero-intro { max-width: 34ch; margin: 34px 0 0; color: rgba(255,255,255,.74); font-size: var(--text-lead); line-height: 1.85; letter-spacing:.01em; text-wrap:pretty; }
@@ -145,11 +146,14 @@ body { overflow-x: hidden; }
 .project { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(330px,.8fr); gap:clamp(36px,6vw,100px); align-items:center; min-height:680px; padding:66px 0; border-top:1px solid var(--line); }
 .project-reverse .project-visual { order:2; }
 .project-visual { position:relative; min-height:590px; border-radius:var(--radius-lg); overflow:hidden; isolation:isolate; }
+.project-visual.project-cover-link { display:block; min-height:0; aspect-ratio:1586 / 992; background:#ebe9e7; box-shadow:0 28px 70px rgba(32,41,68,.12); }
+.project-cover-image { display:block; width:100%; height:100%; object-fit:cover; transition:transform .6s cubic-bezier(.16,1,.3,1); }
+.project-cover-link:hover .project-cover-image { transform:scale(1.015); }
 .visual-label { position:absolute; left:22px; bottom:20px; z-index:10; font:700 .625rem/1 var(--font-instrument); letter-spacing:.12em; }
 .project-copy { max-width:520px; }
 .project-meta { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
 .project-meta span,.skills span { padding:8px 12px; border:1px solid var(--line); border-radius:999px; font-size:var(--text-caption); font-weight:700; }
-.project h3 { margin:0 0 24px; font:800 clamp(2.625rem,4.5vw,4.25rem)/1.08 var(--font-display); letter-spacing:-.02em; }
+.project h3 { margin:0 0 24px; font:800 clamp(2.625rem,4.5vw,4.25rem)/var(--leading-display) var(--font-display); letter-spacing:-.02em; }
 .project-copy>p { max-width:65ch; color:#536079; font-size:var(--text-body); line-height:var(--leading-body); text-wrap:pretty; }
 .project dl { margin:34px 0; }
 .project dl div { display:grid; grid-template-columns:90px 1fr; gap:14px; padding:13px 0; border-top:1px solid var(--line); }
