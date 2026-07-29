@@ -22,6 +22,11 @@
   max-width: 31ch;
 }
 
+.b2b-case-hero .project-note span {
+  display: block;
+  white-space: nowrap;
+}
+
 .b2b-hero-stack {
   position: relative;
   min-height: min(690px, 70vh);
@@ -167,6 +172,13 @@
 .founder-series-heading h2 span {
   display: block;
   white-space: nowrap;
+}
+
+.piece-note {
+  max-width: 24ch;
+  margin: 28px 0 0;
+  color: #59637a;
+  font-size: 1.0625rem;
 }
 
 .b2b-video-frame {
