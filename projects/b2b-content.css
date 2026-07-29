@@ -169,13 +169,6 @@
   white-space: nowrap;
 }
 
-.b2b-piece-copy > p:last-child {
-  max-width: 24ch;
-  margin: 28px 0 0;
-  color: #59637a;
-  font-size: 1.0625rem;
-}
-
 .b2b-video-frame {
   justify-self: center;
   width: min(100%, 570px);
