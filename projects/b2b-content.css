@@ -66,10 +66,10 @@
 
 .hero-card--founder {
   z-index: 1;
-  top: 2%;
-  right: 5%;
-  width: 31%;
-  aspect-ratio: 9 / 16;
+  top: 0;
+  right: 2%;
+  width: 34%;
+  aspect-ratio: 3 / 4;
   transform: rotate(5deg);
 }
 
