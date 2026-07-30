@@ -22,11 +22,6 @@
   max-width: 31ch;
 }
 
-.b2b-case-hero .project-note span {
-  display: block;
-  white-space: nowrap;
-}
-
 .b2b-hero-stack {
   position: relative;
   min-height: min(690px, 70vh);
@@ -265,65 +260,28 @@
   transform: rotate(1.5deg);
 }
 
-.founder-cover-placeholder {
-  position: relative;
-  display: flex;
-  aspect-ratio: 3 / 4;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
+.founder-cover {
+  margin: 0;
   overflow: hidden;
-  color: #fff9ec;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  background:
-    linear-gradient(110deg, transparent 0 54%, rgba(255, 255, 255, 0.08) 54% 55%, transparent 55%),
-    linear-gradient(160deg, #4d3128, #8b604b 48%, #271c1a);
+  border-radius: 12px;
+  background: #11172d;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.22);
 }
 
-.founder-cover-placeholder::after {
-  content: "";
-  position: absolute;
-  right: -14%;
-  bottom: -12%;
-  width: 62%;
-  aspect-ratio: 1;
-  border-radius: 50% 50% 16% 16%;
-  background: rgba(15, 17, 28, 0.55);
+.founder-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-.founder-cover-placeholder span,
-.founder-cover-placeholder strong,
-.founder-cover-placeholder small {
-  position: relative;
-  z-index: 1;
-}
-
-.founder-cover-placeholder span,
-.founder-cover-placeholder small {
-  font: 700 0.58rem/1 var(--instrument);
-  letter-spacing: 0.08em;
-}
-
-.founder-cover-placeholder span {
-  color: rgba(255, 249, 236, 0.66);
-}
-
-.founder-cover-placeholder strong {
-  align-self: center;
-  margin: auto 0;
-  font: 800 clamp(1.5rem, 2.6vw, 2.7rem) / 1.08 var(--display);
-  text-align: center;
-}
-
-.founder-cover-placeholder small {
-  color: rgba(255, 249, 236, 0.75);
-}
-
-.founder-cover-placeholder--factory {
-  color: var(--paper);
-  background:
-    linear-gradient(20deg, rgba(221, 255, 63, 0.14), transparent 45%),
-    linear-gradient(150deg, #183554, #48759d 52%, #17253e);
+.founder-series-close {
+  width: min(980px, calc(100% - 80px));
+  max-width: 38ch;
+  margin: 80px auto 0;
+  color: rgba(247, 248, 252, 0.72);
+  font-size: 1.0625rem;
+  line-height: 1.8;
 }
 
 .case-footer-actions {
@@ -396,10 +354,6 @@
 
   .founder-cover-grid {
     gap: 10px;
-  }
-
-  .founder-cover-placeholder {
-    padding: 13px;
   }
 
   .case-footer-actions {
