@@ -10,7 +10,8 @@
     <link rel="canonical" href="./" /><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="../assets/fonts/SmileySans-Oblique.ttf.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="../shared.css?v=20260723-3" />
-    <link rel="stylesheet" href="../chapters.css?v=20260805-2" />
+    <link rel="stylesheet" href="../chapters.css?v=20260805-3" />
+    <script src="./projects.js?v=20260805-1" defer></script>
   </head>
   <body class="projects-page">
     <a class="skip-link" href="#main">跳到主要内容</a>
@@ -20,8 +21,10 @@
       <section class="chapter-main" aria-label="作品与项目列表">
         <article class="project-entry entry-showreel" aria-labelledby="showreel-title">
           <span class="project-entry__no">影像作品集 · 2025</span>
-          <div class="project-entry__stage">
-            <iframe src="https://player.bilibili.com/player.html?isOutside=true&amp;aid=114504666978106&amp;bvid=BV1P9EYzcEcU&amp;cid=29944250612&amp;p=1" title="周灏 2025 影像作品集" loading="lazy" scrolling="no" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <div class="project-entry__stage" data-showreel-player>
+            <img class="showreel-cover" src="../assets/showreel-2025-cover.jpg" alt="周灏个人作品集 2025 封面" />
+            <button class="showreel-play" type="button" aria-label="在当前页面播放 2025 影像作品集"><span class="showreel-play__icon" aria-hidden="true"></span><span>播放作品集</span></button>
+            <iframe src="about:blank" data-src="https://player.bilibili.com/player.html?isOutside=true&amp;aid=114504666978106&amp;bvid=BV1P9EYzcEcU&amp;cid=29944250612&amp;p=1" title="周灏 2025 影像作品集" loading="lazy" scrolling="no" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
           </div>
           <div class="project-entry__copy">
             <p class="showreel-meta">07:02 · 拍摄与剪辑作品集</p>
