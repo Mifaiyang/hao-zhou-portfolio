@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="周灏的永诺 YN150 智能控制项目：不用购买新网关，让旧 Mac 把摄影灯接入 HomeKit、Siri 和快捷指令。" />
+    <meta name="theme-color" content="#11172d" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:title" content="用旧 Mac，让 Siri 接管摄影灯｜周灏" />
+    <meta property="og:description" content="从一次开灯的小麻烦，到可安装、可审计的本地智能控制方案。" />
+    <meta property="og:image" content="../assets/zhouhao-portfolio-og.png" />
+    <title>用旧 Mac，让 Siri 接管摄影灯｜周灏</title>
+    <link rel="canonical" href="./yongnuo-homekit.html" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="../assets/fonts/SmileySans-Oblique.ttf.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="../shared.css?v=20260723-3" />
+    <link rel="stylesheet" href="../projects/project-placeholder.css?v=20260726-2" />
+    <link rel="stylesheet" href="./lab-detail.css?v=20260809-1" />
+  </head>
+  <body>
+    <a class="skip-link" href="#content">跳到内容</a>
+    <main class="project-page lab-case homekit-case">
+      <nav class="project-nav" aria-label="主导航">
+        <a class="project-brand" href="../index.html"><img class="project-brand__mark" src="../assets/signal-mark.svg" alt="" aria-hidden="true" />ZHOU HAO</a>
+        <span class="project-nav-links"><a href="../index.html">主页</a><a href="../projects/index.html">项目</a><a href="./index.html" aria-current="page">AI 实验室</a><a href="../about/index.html">关于我</a></span>
+        <div class="resume-contact"><button class="project-resume" type="button" aria-label="联系我，悬停查看微信二维码">联系我</button><div class="resume-contact__popover"><img src="../assets/wechat-qr.png" alt="微信二维码，扫码添加微信" /><p>微信联系我<br />扫码添加微信</p></div></div>
+      </nav>
+
+      <section class="project-hero" id="content">
+        <div>
+          <p class="kicker">本地创作者工具</p>
+          <h1 class="display-lines"><span class="display-line">用旧 Mac</span><span class="display-line">让 Siri 接管摄影灯</span></h1>
+          <p class="project-note">没买新网关。让旧 Mac 把一盏普通 YN150 接进 HomeKit。</p>
+          <div class="case-actions"><a class="home-link" href="https://github.com/Mifaiyang/yongnuo-light-homekit-bridge" target="_blank" rel="noreferrer">查看 GitHub 项目 <span>↗</span></a><a class="quiet-link" href="#case-process">查看排错过程 ↓</a></div>
+        </div>
+        <div class="lab-case-visual homekit-visual" aria-label="iPhone、Siri 和 Apple Home 通过旧 Mac 控制永诺 YN150 摄影灯的结构示意">
+          <span class="orbit orbit--siri">SIRI</span><span class="orbit orbit--home">HOME</span><span class="orbit orbit--light">YN150</span>
+          <div class="bridge-core"><small>LOCAL BRIDGE</small><strong>旧 Mac</strong><em>BLE / HTTP / HOMEKIT</em></div>
+          <span class="signal-line signal-line--one"></span><span class="signal-line signal-line--two"></span><span class="signal-dot"></span>
+        </div>
+      </section>
+
+      <section class="case-overview" aria-labelledby="homekit-overview-title">
+        <div class="case-heading"><p>问题与目标</p><h2 id="homekit-overview-title">最初只是觉得<br />开一盏灯太麻烦</h2></div>
+        <dl class="case-facts">
+          <div><dt>真实麻烦</dt><dd>每次开灯都要找手机、打开官方 App，再进入设备页面</dd></div>
+          <div><dt>现有条件</dt><dd>摄影灯旁已有一台长期运行的旧 Mac</dd></div>
+          <div><dt>方案约束</dt><dd>不购买新网关、本地运行、先把开关做顺手</dd></div>
+          <div><dt>最终入口</dt><dd>HomeKit、Siri、快捷指令和本地网页</dd></div>
+          <div><dt>实机范围</dt><dd>已验证 YN150WY，频道 21；不宣称兼容全部永诺型号</dd></div>
+          <div><dt>我的角色</dt><dd>定义体验、提供真机反馈、判断验收结果并推进公开发布</dd></div>
+        </dl>
+      </section>
+
+      <section class="case-process" id="case-process" aria-labelledby="homekit-process-title">
+        <div class="case-heading"><p>怎么做出来</p><h2 id="homekit-process-title">代码说成功还不够<br />灯要真的听话</h2></div>
+        <ol class="process-list">
+          <li><span>01</span><div><h3>先把目标缩到一个动作</h3><p>没有先做完整智能家居系统。第一步只解决开关，让手机和 Siri 成为更快的入口。</p></div></li>
+          <li><span>02</span><div><h3>让错误现象成为线索</h3><p>旧型号指令写入成功，灯却只暗一下又自动亮起。真实设备的反应推翻了第一套方案。</p></div></li>
+          <li><span>03</span><div><h3>重新验证设备协议</h3><p>先核对蓝牙名称、频道和可写特征。再结合 APK 分析，确认 YN150 的正确指令。</p></div></li>
+          <li><span>04</span><div><h3>从能用，继续做到省心</h3><p>旧 Mac 成为本地中枢。后台服务、单按钮切换和自动恢复，让它不必每次重新配置。</p></div></li>
+          <li><span>05</span><div><h3>把私人方案整理成公开项目</h3><p>安装脚本会生成本机配置。发布审计则拦住个人路径、局域网信息和运行日志。</p></div></li>
+        </ol>
+      </section>
+
+      <section class="case-evidence" aria-labelledby="homekit-evidence-title">
+        <div class="case-heading"><p>目前留下的证据</p><h2 id="homekit-evidence-title">不只是一句<br />“嘿 Siri，开灯”</h2></div>
+        <div class="evidence-grid">
+          <article><span>本地体验</span><h3>四种控制入口</h3><p>HomeKit、Siri、快捷指令和网页，都连接到同一盏灯。</p></article>
+          <article><span>稳定性记录</span><h3>180 秒分层测试</h3><p>测试窗口内，三层检查均未记录失败。</p></article>
+          <article><span>公开交付</span><h3>代码、安装器与审计</h3><p>仓库保留安装、恢复和边界说明，也明确要求 Mac 保持唤醒。</p><a href="https://github.com/Mifaiyang/yongnuo-light-homekit-bridge" target="_blank" rel="noreferrer">打开 GitHub ↗</a></article>
+        </div>
+      </section>
+
+      <section class="case-boundary" aria-labelledby="homekit-boundary-title">
+        <div><p>项目边界</p><h2 id="homekit-boundary-title">它更顺手了<br />但不是万能网关</h2></div>
+        <div><p>目前完整验证的是 YN150WY 与频道 21。其他型号需要重新发现协议，并经过真实设备测试。</p><p>Mac 完全睡眠、摄影灯断电或蓝牙被其他 App 占用时，控制仍会失效。这个项目解决的是本地使用体验，不是“永不掉线”。</p></div>
+      </section>
+
+      <section class="case-footer-actions"><a class="home-link" href="./index.html">返回 AI 实验室 <span>↗</span></a><a class="quiet-link" href="./ai-subtitle-workflow.html">下一个：AI 字幕工作流 →</a></section>
+    </main>
+  </body>
+</html>

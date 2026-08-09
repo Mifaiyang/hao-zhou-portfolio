@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="周灏的中英字幕 AI 协作工作流：保留原时间轴，把 AI 初译、业务校对、翻译记忆与英文 SRT 回写连成一条流程。" />
+    <meta name="theme-color" content="#11172d" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:title" content="让 AI 记住每一次字幕修改｜周灏" />
+    <meta property="og:description" content="不是让 AI 独自翻译，而是把剪辑、AI 与业务审核重新接起来。" />
+    <meta property="og:image" content="../assets/zhouhao-portfolio-og.png" />
+    <title>让 AI 记住每一次字幕修改｜周灏</title>
+    <link rel="canonical" href="./ai-subtitle-workflow.html" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="../assets/fonts/SmileySans-Oblique.ttf.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="../shared.css?v=20260723-3" />
+    <link rel="stylesheet" href="../projects/project-placeholder.css?v=20260726-2" />
+    <link rel="stylesheet" href="./lab-detail.css?v=20260809-1" />
+  </head>
+  <body>
+    <a class="skip-link" href="#content">跳到内容</a>
+    <main class="project-page lab-case subtitle-case">
+      <nav class="project-nav" aria-label="主导航">
+        <a class="project-brand" href="../index.html"><img class="project-brand__mark" src="../assets/signal-mark.svg" alt="" aria-hidden="true" />ZHOU HAO</a>
+        <span class="project-nav-links"><a href="../index.html">主页</a><a href="../projects/index.html">项目</a><a href="./index.html" aria-current="page">AI 实验室</a><a href="../about/index.html">关于我</a></span>
+        <div class="resume-contact"><button class="project-resume" type="button" aria-label="联系我，悬停查看微信二维码">联系我</button><div class="resume-contact__popover"><img src="../assets/wechat-qr.png" alt="微信二维码，扫码添加微信" /><p>微信联系我<br />扫码添加微信</p></div></div>
+      </nav>
+
+      <section class="project-hero" id="content">
+        <div>
+          <p class="kicker">AI × 内容生产</p>
+          <h1 class="display-lines"><span class="display-line">让 AI 记住</span><span class="display-line">每一次字幕修改</span></h1>
+          <p class="project-note">保留原时间轴，把 AI 初译、业务校对和英文 SRT 回写连成一条流程。</p>
+          <div class="case-actions"><a class="home-link" href="#subtitle-process">查看完整流程 <span>↓</span></a><a class="quiet-link" href="#subtitle-boundary">查看能力边界 ↓</a></div>
+        </div>
+        <div class="lab-case-visual subtitle-visual" aria-label="中文 SRT 经 AI 初译、业务校对、翻译记忆回流后输出英文 SRT 的流程示意">
+          <div class="subtitle-flow"><span><b>01</b>中文 SRT</span><span><b>02</b>AI 初译</span><span><b>03</b>业务校对</span><span><b>04</b>修改回流</span><span><b>05</b>英文 SRT</span></div>
+          <p>TIMEcode stays.<br /><strong>Language gets better.</strong></p>
+        </div>
+      </section>
+
+      <section class="case-overview" aria-labelledby="subtitle-overview-title">
+        <div class="case-heading"><p>问题与判断</p><h2 id="subtitle-overview-title">翻译和重新打点<br />不该绑在一起</h2></div>
+        <dl class="case-facts">
+          <div><dt>业务场景</dt><dd>中文产品与工厂视频，需要继续面向海外客户分发</dd></div>
+          <div><dt>旧流程</dt><dd>翻译完成后，剪辑人员还要逐条打点、校对和对齐</dd></div>
+          <div><dt>关键判断</dt><dd>用 SRT 连接剪辑、AI 和海外业务，不重做原时间轴</dd></div>
+          <div><dt>人工职责</dt><dd>业务人员只判断行业术语、客户语境和自然表达</dd></div>
+          <div><dt>阶段反馈</dt><dd>据实际协作反馈，字幕处理耗时约减少 80%</dd></div>
+          <div><dt>当前状态</dt><dd>流程已验证；升级版 Skill 将在收到后继续替换</dd></div>
+        </dl>
+      </section>
+
+      <section class="case-process" id="subtitle-process" aria-labelledby="subtitle-process-title">
+        <div class="case-heading"><p>完整工作流</p><h2 id="subtitle-process-title">AI 负责批处理<br />人负责真正的判断</h2></div>
+        <ol class="process-list">
+          <li><span>01</span><div><h3>从剪辑软件导出中文 SRT</h3><p>编号、时间轴和中文台词一起保留。它成为后续协作的标准输入。</p></div></li>
+          <li><span>02</span><div><h3>AI 生成英文初稿与校对表</h3><p>Skill 先解析字幕，再生成四列校对内容，方便逐句确认。</p></div></li>
+          <li><span>03</span><div><h3>业务人员只改必须由人判断的部分</h3><p>专业术语和客户语境交给熟悉业务的人。剪辑人员不再猜行业英语。</p></div></li>
+          <li><span>04</span><div><h3>确认过的修改留给下一次</h3><p>系统支持把人工终稿写回术语表和翻译记忆，后续任务可以优先参考。</p></div></li>
+          <li><span>05</span><div><h3>回写英文 SRT，并检查结构</h3><p>英文字幕沿用原编号和时间轴。自动校验通过后，可直接回到剪辑软件。</p></div></li>
+        </ol>
+      </section>
+
+      <section class="case-evidence" aria-labelledby="subtitle-evidence-title">
+        <div class="case-heading"><p>为什么值得做</p><h2 id="subtitle-evidence-title">一次修改<br />不该只服务一条视频</h2></div>
+        <div class="evidence-grid">
+          <article><span>减少重复劳动</span><h3>原时间轴继续使用</h3><p>译文不再重新打点，剪辑端也不用反复处理相同的结构工作。</p></article>
+          <article><span>让专业的人做判断</span><h3>业务校对进入流程</h3><p>海外业务负责专业表达，剪辑人员负责语境与最终视听检查。</p></article>
+          <article><span>阶段结果</span><h3>约 80% 耗时下降</h3><p>该数字来自实际协作反馈，不是严格计时实验，因此保留“约”的口径。</p></article>
+        </div>
+      </section>
+
+      <section class="case-boundary" id="subtitle-boundary" aria-labelledby="subtitle-boundary-title">
+        <div><p>当前边界</p><h2 id="subtitle-boundary-title">它会复用修改<br />但没有训练新模型</h2></div>
+        <div><p>这是一套文件式、可审计的轻量工作流。它使用术语表和翻译记忆，不属于模型训练或微调。</p><p>截至现有版本审计时，机制已经实现，但正式术语库与已审核样本仍待继续积累。因此这里不写“成熟企业知识库”。</p></div>
+      </section>
+
+      <section class="case-footer-actions"><a class="home-link" href="./index.html">返回 AI 实验室 <span>↗</span></a><a class="quiet-link" href="./yongnuo-homekit.html">上一篇：摄影灯与 Siri →</a></section>
+    </main>
+  </body>
+</html>
