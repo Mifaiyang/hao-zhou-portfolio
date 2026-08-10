@@ -95,6 +95,7 @@ body { overflow-x: hidden; }
 .hero-proof div { display:flex; flex-direction:column; gap:4px; }
 .hero-proof strong { font:800 clamp(1.75rem,4vw,3.25rem)/1 var(--font-display); letter-spacing:-.02em; font-variant-numeric:tabular-nums; }
 .proof-value { display:inline-flex; align-items:baseline; min-height:1em; }
+.proof-prefix { margin-right:.28em; color:rgba(255,255,255,.68); font:700 .36em/1 var(--font-body); letter-spacing:0; }
 .proof-fallback { display:inline-block; }
 .proof-odometer { display:none; height:1em; min-width:2.15ch; overflow:hidden; vertical-align:bottom; }
 .proof-digit-strip { display:flex; height:1em; white-space:nowrap; }

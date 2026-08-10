@@ -128,6 +128,7 @@ a { color: inherit; text-decoration: none; }
   text-align: center;
 }
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   :where(.resume-contact__popover) {
     transition: none;
     transform: none;

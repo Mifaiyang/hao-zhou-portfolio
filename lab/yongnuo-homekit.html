@@ -14,9 +14,9 @@
     <link rel="canonical" href="./yongnuo-homekit.html" />
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="../assets/fonts/SmileySans-Oblique.ttf.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="../shared.css?v=20260723-3" />
-    <link rel="stylesheet" href="../projects/project-placeholder.css?v=20260726-2" />
-    <link rel="stylesheet" href="./lab-detail.css?v=20260809-2" />
+    <link rel="stylesheet" href="../shared.css?v=20260811-1" />
+    <link rel="stylesheet" href="../projects/project-placeholder.css?v=20260811-1" />
+    <link rel="stylesheet" href="./lab-detail.css?v=20260811-1" />
   </head>
   <body>
     <a class="skip-link" href="#content">跳到内容</a>
@@ -50,6 +50,8 @@
           <div><dt>最终入口</dt><dd>HomeKit、Siri、快捷指令和本地网页</dd></div>
           <div><dt>实机范围</dt><dd>已验证 YN150WY，频道 21；不宣称兼容全部永诺型号</dd></div>
           <div><dt>我的角色</dt><dd>定义体验、提供真机反馈、判断验收结果并推进公开发布</dd></div>
+          <div><dt>AI Agent 协助</dt><dd>协议分析辅助、代码实现、测试与排错</dd></div>
+          <div><dt>公开状态</dt><dd>代码、安装说明和能力边界已整理到 GitHub</dd></div>
         </dl>
       </section>
 
@@ -58,7 +60,7 @@
         <ol class="process-list">
           <li><span>01</span><div><h3>先把目标缩到一个动作</h3><p>没有先做完整智能家居系统。第一步只解决开关，让手机和 Siri 成为更快的入口。</p></div></li>
           <li><span>02</span><div><h3>让错误现象成为线索</h3><p>旧型号指令写入成功，灯却只暗一下又自动亮起。真实设备的反应推翻了第一套方案。</p></div></li>
-          <li><span>03</span><div><h3>重新验证设备协议</h3><p>先核对蓝牙名称、频道和可写特征。再结合 APK 分析，确认 YN150 的正确指令。</p></div></li>
+          <li><span>03</span><div><h3>重新验证设备协议</h3><p>先核对蓝牙名称、频道和可写特征，再由 AI Agent 辅助分析 APK，确认 YN150 的正确指令。</p></div></li>
           <li><span>04</span><div><h3>从能用，继续做到省心</h3><p>Mac 成为本地中枢。后台服务、单按钮切换和自动恢复，让它不必每次重新配置。</p></div></li>
           <li><span>05</span><div><h3>把私人方案整理成公开项目</h3><p>安装脚本会生成本机配置。发布审计则拦住个人路径、局域网信息和运行日志。</p></div></li>
         </ol>
