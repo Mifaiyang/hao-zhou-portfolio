@@ -38,22 +38,29 @@
   contactPopover.setAttribute('role', 'dialog');
   contactPopover.setAttribute('aria-label', '微信联系方式');
   contactButton.setAttribute('aria-controls', contactPopover.id);
+  contactButton.setAttribute('aria-haspopup', 'dialog');
   contactButton.setAttribute('aria-expanded', 'false');
 
   const closeContact = () => {
     contact.classList.remove('is-open');
-    contactButton.setAttribute('aria-expanded', 'false');
+    if (mobileQuery.matches) {
+      contactButton.setAttribute('aria-expanded', 'false');
+    } else {
+      contactButton.removeAttribute('aria-expanded');
+    }
     contactButton.blur();
   };
 
   const syncMobileContactCopy = () => {
     if (mobileQuery.matches) {
       contactButton.setAttribute('aria-label', '联系我，点按查看微信二维码');
+      contactButton.setAttribute('aria-expanded', contact.classList.contains('is-open') ? 'true' : 'false');
       if (contactNote) contactNote.innerHTML = '长按保存二维码<br />再到微信中识别';
     } else {
-      contactButton.setAttribute('aria-label', '联系我，悬停查看微信二维码');
-      if (contactNote) contactNote.innerHTML = '微信联系我<br />扫码添加微信';
       closeContact();
+      contactButton.setAttribute('aria-label', '联系我，悬停查看微信二维码');
+      contactButton.removeAttribute('aria-expanded');
+      if (contactNote) contactNote.innerHTML = '微信联系我<br />扫码添加微信';
     }
   };
 
