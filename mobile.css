@@ -136,6 +136,142 @@
   }
 }
 
+@media (max-width: 680px) {
+  .entry-showreel {
+    grid-template-areas:
+      "label"
+      "copy"
+      "player";
+    grid-template-columns: minmax(0, 1fr);
+    margin-bottom: 64px;
+  }
+
+  .entry-showreel .project-entry__stage {
+    width: calc(100% - 18px);
+  }
+
+  .entry-showreel .project-entry__copy {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 26px 0 28px;
+  }
+
+  :where(.case-overview, .case-process, .case-evidence, .case-use) {
+    padding-top: 76px;
+    padding-bottom: 76px;
+  }
+
+  .case-heading {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    margin-bottom: 38px;
+  }
+
+  .case-heading > p,
+  .case-boundary > div:first-child > p {
+    margin-top: 0;
+  }
+
+  .case-heading h2,
+  .case-boundary h2 {
+    max-width: none;
+    font-size: clamp(2.25rem, 10.5vw, 2.75rem);
+  }
+
+  .case-facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .case-facts div,
+  .case-facts div:nth-child(odd),
+  .case-facts div:nth-child(even) {
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 16px;
+    padding: 22px 0;
+    border-left: 0;
+  }
+
+  .case-facts dd {
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
+  .process-list li {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 14px;
+    padding: 28px 0;
+  }
+
+  .process-list h3 {
+    font-size: clamp(1.625rem, 7.5vw, 2rem);
+  }
+
+  .evidence-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .evidence-grid article {
+    min-height: 0;
+    padding: 28px;
+  }
+
+  .evidence-grid h3 {
+    margin: 28px 0 14px;
+    font-size: clamp(1.75rem, 8vw, 2.125rem);
+  }
+
+  .case-boundary,
+  .jinghuayuan-case .case-boundary {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+    padding-top: 76px;
+    padding-bottom: 76px;
+  }
+
+  .case-boundary > div:last-child {
+    font-size: 1rem;
+  }
+
+  .case-footer-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+    padding-bottom: 76px;
+  }
+
+  :where(.home-link, .quiet-link, .about-actions a, .lab-item a) {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .b2b-selection {
+    padding-top: 80px;
+    padding-bottom: 100px;
+  }
+
+  .b2b-section-heading {
+    margin-bottom: 62px;
+  }
+
+  .b2b-piece {
+    margin-top: 82px;
+  }
+
+  .b2b-piece-copy {
+    padding-top: 10px;
+  }
+
+  .b2b-piece-copy h3 span,
+  .founder-series-heading h2 span {
+    white-space: normal;
+  }
+
+  .founder-series {
+    padding-top: 80px;
+    padding-bottom: 90px;
+  }
+}
+
 @media (hover: none) and (pointer: coarse) and (max-width: 900px) {
   .resume-contact:hover:not(.is-open) .resume-contact__popover,
   .resume-contact:focus-within:not(.is-open) .resume-contact__popover {

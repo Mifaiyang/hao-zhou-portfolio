@@ -34,7 +34,7 @@
 
   if (!contact || !contactButton || !contactPopover) return;
 
-  contactPopover.id ||= 'contact-popover';
+  if (!contactPopover.id) contactPopover.id = 'contact-popover';
   contactPopover.setAttribute('role', 'dialog');
   contactPopover.setAttribute('aria-label', '微信联系方式');
   contactButton.setAttribute('aria-controls', contactPopover.id);
@@ -77,6 +77,10 @@
     if (event.key === 'Escape') closeContact();
   });
 
-  mobileQuery.addEventListener?.('change', syncMobileContactCopy);
+  if (mobileQuery.addEventListener) {
+    mobileQuery.addEventListener('change', syncMobileContactCopy);
+  } else {
+    mobileQuery.addListener(syncMobileContactCopy);
+  }
   syncMobileContactCopy();
 })();
