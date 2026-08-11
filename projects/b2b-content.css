@@ -215,13 +215,16 @@
 }
 
 .founder-series {
+  width: auto;
+  margin-right: 0;
+  margin-left: 0;
   padding: 110px 0 130px;
   color: var(--paper);
-  border-radius: 48px;
+  border-radius: 0;
   background:
     radial-gradient(circle at 76% 28%, rgba(170, 162, 232, 0.3), transparent 33%),
     var(--ink);
-  box-shadow: 0 35px 100px rgba(17, 23, 45, 0.16);
+  box-shadow: none;
 }
 
 .founder-series-heading,
@@ -350,8 +353,8 @@
   }
 
   .founder-series {
-    width: calc(100% - 20px);
-    border-radius: 32px;
+    width: auto;
+    border-radius: 0;
   }
 
   .founder-series-heading,
