@@ -176,6 +176,22 @@
   font-size: 1.0625rem;
 }
 
+.piece-role {
+  max-width: 34ch;
+  margin: 18px 0 0;
+  color: #303950;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.piece-role strong {
+  display: block;
+  margin-bottom: 3px;
+  color: #665f99;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
 .b2b-video-frame {
   justify-self: center;
   width: min(100%, 570px);
