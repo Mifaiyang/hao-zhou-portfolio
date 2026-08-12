@@ -122,6 +122,11 @@ function coarseDevice(body) {
   };
 }
 
+function cleanRecipientTag(value) {
+  const tag = cleanText(value, 64, /[^a-zA-Z0-9_-]/g);
+  return tag.length >= 3 ? tag : "";
+}
+
 function validToken(value) {
   return typeof value === "string" && /^[a-zA-Z0-9_-]{16,96}$/.test(value);
 }
@@ -142,7 +147,7 @@ exports.main = async (event = {}) => {
   if (!HASH_SALT) return response(503, { ok: false, error: "service_not_ready" }, origin);
 
   const body = parseBody(event);
-  if (!body || !EVENT_TYPES.has(body.type) || !validToken(body.sessionId) || !validToken(body.visitorId)) {
+  if (!body || !EVENT_TYPES.has(body.type) || !validToken(body.sessionId)) {
     return response(400, { ok: false, error: "invalid_payload" }, origin);
   }
 
@@ -154,9 +159,10 @@ exports.main = async (event = {}) => {
   const now = new Date();
   const ip = extractIp(event, headers);
   const sessionKey = hmac(body.sessionId);
-  const visitorHash = hmac(body.visitorId);
   const activeMs = Math.max(0, Math.min(Number(body.activeMs) || 0, MAX_ACTIVE_MS));
   const elapsedMs = Math.max(activeMs, Math.min(Number(body.elapsedMs) || 0, MAX_ACTIVE_MS));
+  const scrollDepth = Math.max(0, Math.min(Math.round(Number(body.scrollDepth) || 0), 100));
+  const eventAt = Math.max(0, Math.min(Number(body.eventAt) || Date.now(), Date.now() + 60000));
   const path = cleanPath(body.path);
   const update = {
     type: body.type,
@@ -164,8 +170,10 @@ exports.main = async (event = {}) => {
     pageTitle: cleanText(body.title, 120),
     activeMs,
     elapsedMs,
+    scrollDepth,
     lastSeenAt: now,
     endedAt: body.type === "leave" ? now : null,
+    lastClientAt: eventAt,
   };
 
   const visits = db.collection(COLLECTION);
@@ -175,7 +183,6 @@ exports.main = async (event = {}) => {
     const geo = coarseGeo(ip);
     await visits.add({
       sessionKey,
-      visitorHash,
       startedAt: now,
       expiresAt: new Date(now.getTime() + RETENTION_MS),
       firstPath: path,
@@ -185,6 +192,7 @@ exports.main = async (event = {}) => {
         medium: cleanText(body.campaign?.medium, 48),
         name: cleanText(body.campaign?.name, 64),
       },
+      recipientTag: cleanRecipientTag(body.recipientTag),
       geo,
       ipMasked: maskIp(ip),
       ipHash: hmac(ip),
@@ -197,8 +205,23 @@ exports.main = async (event = {}) => {
     const current = existing.data[0];
     const previousPaths = Array.isArray(current.paths) ? current.paths : [];
     const isNewPath = !previousPaths.includes(path);
+    const isNewestEvent = eventAt >= (Number(current.lastClientAt) || 0);
+    const latestPage = isNewestEvent
+      ? {
+          type: body.type,
+          path,
+          pageTitle: cleanText(body.title, 120),
+          endedAt: body.type === "leave" ? now : null,
+          lastClientAt: eventAt,
+        }
+      : {};
     await visits.doc(current._id).update({
-      ...update,
+      ...latestPage,
+      activeMs: Math.max(Number(current.activeMs) || 0, activeMs),
+      elapsedMs: Math.max(Number(current.elapsedMs) || 0, elapsedMs),
+      lastSeenAt: now,
+      recipientTag: current.recipientTag || cleanRecipientTag(body.recipientTag),
+      scrollDepth: Math.max(Number(current.scrollDepth) || 0, scrollDepth),
       pageViews: isNewPath ? command.inc(1) : current.pageViews || 1,
       paths: isNewPath ? [...previousPaths, path].slice(-20) : previousPaths,
     });
