@@ -97,6 +97,7 @@
 
 .b2b-selection,
 .founder-series,
+.concept-series,
 .case-footer-actions {
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
@@ -140,6 +141,10 @@
 }
 
 .b2b-piece--ai {
+  grid-template-columns: minmax(420px, 1.1fr) minmax(360px, 0.9fr);
+}
+
+.b2b-piece--ciff {
   grid-template-columns: minmax(420px, 1.1fr) minmax(360px, 0.9fr);
 }
 
@@ -206,7 +211,8 @@
 }
 
 .b2b-video-frame video,
-.founder-video video {
+.founder-video video,
+.starship-video video {
   display: block;
   width: 100%;
   height: 100%;
@@ -225,6 +231,34 @@
     radial-gradient(circle at 76% 28%, rgba(170, 162, 232, 0.3), transparent 33%),
     var(--ink);
   box-shadow: none;
+}
+
+.founder-evidence {
+  display: grid;
+  width: min(980px, calc(100% - 80px));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 72px auto 0;
+  border-top: 1px solid rgba(247, 248, 252, 0.18);
+  border-left: 1px solid rgba(247, 248, 252, 0.18);
+}
+
+.founder-evidence p {
+  min-height: 104px;
+  margin: 0;
+  padding: 24px 26px;
+  color: rgba(247, 248, 252, 0.76);
+  border-right: 1px solid rgba(247, 248, 252, 0.18);
+  border-bottom: 1px solid rgba(247, 248, 252, 0.18);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.founder-evidence strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--acid);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
 }
 
 .founder-series-heading,
@@ -257,7 +291,7 @@
 
 .founder-series-layout {
   display: grid;
-  grid-template-columns: minmax(220px, 0.54fr) minmax(0, 1.46fr);
+  grid-template-columns: minmax(300px, 0.78fr) minmax(0, 1.22fr);
   gap: clamp(38px, 7vw, 90px);
   align-items: center;
   margin-top: 90px;
@@ -303,6 +337,148 @@
   line-height: 1.8;
 }
 
+.process-proof {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(240px, 0.45fr);
+  gap: 34px;
+  align-items: end;
+  margin: 110px 0 0;
+}
+
+.process-proof img {
+  display: block;
+  width: 100%;
+  border: 1px solid rgba(17, 23, 45, 0.16);
+  background: #f5f3ed;
+  box-shadow: 0 24px 62px rgba(26, 27, 58, 0.15);
+}
+
+.process-proof figcaption {
+  max-width: 31ch;
+  color: #59637a;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+
+.process-proof figcaption strong {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--ink);
+  font: 800 1.15rem/1.35 var(--display);
+}
+
+.concept-series {
+  width: auto;
+  padding: 120px max(40px, calc((100vw - 1180px) / 2)) 140px;
+  color: var(--paper);
+  background:
+    radial-gradient(circle at 18% 38%, rgba(219, 100, 49, 0.28), transparent 30%),
+    radial-gradient(circle at 86% 14%, rgba(94, 120, 166, 0.2), transparent 24%),
+    #090b12;
+}
+
+.concept-heading {
+  display: grid;
+  grid-template-columns: 0.34fr 0.66fr;
+  gap: 38px;
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.concept-heading > p {
+  margin: 10px 0 0;
+  color: #ff9b6c;
+  font-size: 0.8125rem;
+  font-weight: 800;
+}
+
+.concept-heading h2 {
+  max-width: 11em;
+  margin: 0;
+  color: var(--paper);
+  font: 800 clamp(2.8rem, 5vw, 5rem) / 1.08 var(--display);
+  letter-spacing: -0.025em;
+}
+
+.concept-heading h2 span {
+  display: block;
+  white-space: nowrap;
+}
+
+.concept-heading > span {
+  grid-column: 2;
+  max-width: 34ch;
+  color: rgba(247, 248, 252, 0.66);
+  font-size: 1.0625rem;
+}
+
+.starship-feature {
+  display: grid;
+  width: min(1180px, 100%);
+  grid-template-columns: minmax(0, 1.38fr) minmax(320px, 0.62fr);
+  gap: clamp(50px, 7vw, 100px);
+  align-items: center;
+  margin: 130px auto 0;
+}
+
+.starship-video {
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 30px;
+  background: #020307;
+  box-shadow: 0 36px 90px rgba(0, 0, 0, 0.5);
+}
+
+.starship-copy h3,
+.poses-copy h3 {
+  margin: 0;
+  font: 800 clamp(2.8rem, 4.2vw, 4.4rem) / 1.04 var(--display);
+  letter-spacing: -0.025em;
+}
+
+.starship-copy h3 span,
+.poses-copy h3 span {
+  display: block;
+}
+
+.starship-copy > p:not(.piece-index, .piece-role, .result-note),
+.poses-copy > p:not(.piece-index, .piece-role) {
+  max-width: 28ch;
+  margin: 28px 0 0;
+  color: rgba(247, 248, 252, 0.68);
+  font-size: 1.025rem;
+}
+
+.concept-series .piece-role {
+  color: rgba(247, 248, 252, 0.75);
+}
+
+.concept-series .piece-role strong,
+.concept-series .piece-index {
+  color: #ff9b6c;
+}
+
+.result-note {
+  display: inline-block;
+  margin: 24px 0 0;
+  padding: 9px 12px;
+  color: #1c1511;
+  background: #ff9b6c;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.poses-feature {
+  display: grid;
+  width: min(980px, 100%);
+  grid-template-columns: minmax(320px, 0.82fr) minmax(360px, 0.58fr);
+  gap: clamp(50px, 8vw, 120px);
+  align-items: center;
+  margin: 96px auto 0;
+}
+
 .case-footer-actions {
   padding: 100px 0 120px;
 }
@@ -315,7 +491,10 @@
 @media (max-width: 900px) {
   .b2b-case-hero,
   .b2b-piece,
-  .b2b-piece--ai {
+  .b2b-piece--ai,
+  .b2b-piece--ciff,
+  .starship-feature,
+  .poses-feature {
     grid-template-columns: 1fr;
   }
 
@@ -323,7 +502,12 @@
     min-height: 650px;
   }
 
-  .b2b-piece--ai .b2b-piece-copy {
+  .b2b-piece--ai .b2b-piece-copy,
+  .b2b-piece--ciff .b2b-piece-copy {
+    order: -1;
+  }
+
+  .starship-copy {
     order: -1;
   }
 
@@ -332,7 +516,7 @@
   }
 
   .founder-series-layout {
-    grid-template-columns: minmax(170px, 0.48fr) minmax(0, 1.52fr);
+    grid-template-columns: minmax(240px, 0.72fr) minmax(0, 1.28fr);
   }
 }
 
@@ -348,7 +532,9 @@
 
   .b2b-section-heading,
   .founder-series-heading,
-  .founder-series-layout {
+  .founder-series-layout,
+  .concept-heading,
+  .process-proof {
     grid-template-columns: 1fr;
   }
 
@@ -366,6 +552,10 @@
     grid-column: auto;
   }
 
+  .concept-heading > span {
+    grid-column: auto;
+  }
+
   .founder-video {
     width: min(76vw, 360px);
     margin: 0 auto;
@@ -373,6 +563,20 @@
 
   .founder-cover-grid {
     gap: 10px;
+  }
+
+  .founder-evidence {
+    width: calc(100% - 40px);
+    grid-template-columns: 1fr;
+  }
+
+  .concept-series {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .concept-heading h2 span {
+    white-space: normal;
   }
 
   .case-footer-actions {
