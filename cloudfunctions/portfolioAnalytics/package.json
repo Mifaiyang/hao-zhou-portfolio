@@ -1,0 +1,10 @@
+{
+  "name": "portfolio-analytics",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "dependencies": {
+    "@cloudbase/node-sdk": "3.18.3",
+    "geoip-lite": "2.0.3"
+  }
+}
