@@ -233,34 +233,6 @@
   box-shadow: none;
 }
 
-.founder-evidence {
-  display: grid;
-  width: min(980px, calc(100% - 80px));
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin: 72px auto 0;
-  border-top: 1px solid rgba(247, 248, 252, 0.18);
-  border-left: 1px solid rgba(247, 248, 252, 0.18);
-}
-
-.founder-evidence p {
-  min-height: 104px;
-  margin: 0;
-  padding: 24px 26px;
-  color: rgba(247, 248, 252, 0.76);
-  border-right: 1px solid rgba(247, 248, 252, 0.18);
-  border-bottom: 1px solid rgba(247, 248, 252, 0.18);
-  font-size: 0.875rem;
-  line-height: 1.7;
-}
-
-.founder-evidence strong {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--acid);
-  font-size: 0.6875rem;
-  letter-spacing: 0.06em;
-}
-
 .founder-series-heading,
 .founder-series-layout {
   width: min(980px, calc(100% - 80px));
@@ -632,11 +604,6 @@
 
   .founder-cover-grid {
     gap: 10px;
-  }
-
-  .founder-evidence {
-    width: calc(100% - 40px);
-    grid-template-columns: 1fr;
   }
 
   .concept-series {
