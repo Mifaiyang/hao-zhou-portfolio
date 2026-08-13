@@ -10,10 +10,11 @@
     <link rel="canonical" href="./" /><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="../assets/fonts/SmileySans-Oblique.ttf.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="../shared.css?v=20260811-1" />
-    <link rel="stylesheet" href="../chapters.css?v=20260811-1" />
+    <link rel="stylesheet" href="../chapters.css?v=20260814-2" />
     <link rel="stylesheet" href="../mobile.css?v=20260811-3" />
     <script src="../mobile.js?v=20260811-3" defer></script>
     <script src="../analytics.js?v=20260812-2" defer></script>
+    <script src="./projects.js?v=20260814-1" defer></script>
   </head>
   <body class="projects-page">
     <a class="skip-link" href="#main">跳到主要内容</a>
@@ -28,8 +29,12 @@
       </div>
         <article class="project-entry entry-showreel" aria-labelledby="showreel-title">
           <span class="project-entry__no">影像作品集 · 2025</span>
-          <div class="project-entry__stage">
-            <iframe src="https://player.bilibili.com/player.html?isOutside=true&amp;aid=114504666978106&amp;bvid=BV1P9EYzcEcU&amp;cid=29944250612&amp;p=1" title="周灏 2025 影像作品集" loading="lazy" scrolling="no" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <div class="project-entry__stage" data-showreel-player>
+            <button class="showreel-poster" type="button" aria-label="播放周灏 2025 影像作品集">
+              <img src="../assets/showreel-2025-cover.jpg" width="2264" height="1273" loading="lazy" decoding="async" alt="数字媒体技术专业影像作品集 2025 视频封面" />
+              <span class="showreel-play" aria-hidden="true">▶</span>
+              <span class="showreel-play-label">点击播放</span>
+            </button>
           </div>
           <div class="project-entry__copy">
             <p class="showreel-meta">07:02 · 拍摄与剪辑作品集</p>

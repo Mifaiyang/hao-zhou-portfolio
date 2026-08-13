@@ -39,3 +39,23 @@
 
 .projects-page .chapter-hero h1{display:flex;flex-direction:column;gap:16px;line-height:1}
 .projects-page .chapter-hero h1 .display-line{line-height:1.04}
+
+/* Project overview alignment: match B2B media to the Sony cover footprint. */
+.entry-b2b{grid-template-columns:120px minmax(260px,.88fr) minmax(260px,1.12fr)}
+.entry-b2b .project-entry__stage{align-self:center;aspect-ratio:1400/876}
+.project-b2b-card{width:34%}
+.project-b2b-card--light{transform:translate(-61%,-50%) rotate(-7deg)}
+.project-b2b-card--founder{transform:translate(-38%,-50%) rotate(7deg)}
+.project-stage-b2b:hover .project-b2b-card--light{transform:translate(-95%,-48%) rotate(-6deg)}
+.project-stage-b2b:hover .project-b2b-card--founder{transform:translate(-5%,-50%) rotate(5deg)}
+.entry-jinghuayuan .project-entry__stage{order:3}
+
+/* The Bilibili player is created only after an explicit play action. */
+.entry-showreel iframe,.showreel-poster{display:block;width:100%;height:100%;border:0;border-radius:15px;background:#000}
+.showreel-poster{position:relative;overflow:hidden;padding:0;cursor:pointer}
+.showreel-poster img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,1,.3,1),filter .4s ease}
+.showreel-poster:hover img,.showreel-poster:focus-visible img{filter:brightness(.72);transform:scale(1.015)}
+.showreel-play{position:absolute;left:50%;top:50%;display:grid;width:72px;aspect-ratio:1;place-items:center;border-radius:50%;color:var(--ink);background:var(--acid);box-shadow:0 16px 40px rgba(0,0,0,.24);font-size:1.5rem;transform:translate(-50%,-50%);transition:transform .25s ease}
+.showreel-poster:hover .showreel-play,.showreel-poster:focus-visible .showreel-play{transform:translate(-50%,-50%) scale(1.08)}
+.showreel-play-label{position:absolute;left:50%;top:calc(50% + 54px);padding:7px 10px;border-radius:999px;color:#fff;background:rgba(17,23,45,.78);font:.6875rem/1 var(--instrument);letter-spacing:.08em;transform:translateX(-50%)}
+@media (max-width:900px){.entry-jinghuayuan .project-entry__stage{order:initial}}
